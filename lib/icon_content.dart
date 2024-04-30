@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
 
-class iconContent extends StatelessWidget {
+class IconContent extends StatelessWidget {
 
-  iconContent({super.key, required this.icon,required this.label});
+  IconContent({super.key, required this.icon,required this.label});
 
   final IconData icon;
   final String label;
