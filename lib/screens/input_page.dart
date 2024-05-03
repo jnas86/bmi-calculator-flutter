@@ -1,11 +1,11 @@
 
-import 'package:bmi_calculator/reusable_card.dart';
-import 'package:bmi_calculator/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'bottom_button.dart';
-import 'constants.dart';
-import 'icon_content.dart';
+import '../components/bottom_button.dart';
+import '../components/reusable_card.dart';
+import '../components/round_icon_button.dart';
+import '../constants.dart';
+import '../components/icon_content.dart';
 
 
 enum Gender{
@@ -13,6 +13,8 @@ enum Gender{
   female
 }
 class InputPage extends StatefulWidget {
+  const InputPage({super.key});
+
   @override
   _InputPageState createState() => _InputPageState();
 }
@@ -74,7 +76,7 @@ class _InputPageState extends State<InputPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text(
+                    const Text(
                         'HEIGHT',
                       style: kLabelTextStyle
                     ),
@@ -87,7 +89,7 @@ class _InputPageState extends State<InputPage> {
                           height.toString(),
                           style: kNumberTextStyle
                         ),
-                        Text(
+                        const Text(
                             'cm',
                             style: kLabelTextStyle
                         ),
@@ -96,11 +98,11 @@ class _InputPageState extends State<InputPage> {
                     SliderTheme(
                       data: SliderTheme.of(context).copyWith(
                         activeTrackColor: Colors.white,
-                        inactiveTrackColor: Color(0xFF8D8E98),
-                        thumbColor: Color(0xFFEB1555),
-                        overlayColor: Color(0x29EB1555),
-                        thumbShape: RoundSliderThumbShape(enabledThumbRadius: 8.0),
-                        overlayShape: RoundSliderOverlayShape(overlayRadius: 16.0)
+                        inactiveTrackColor: const Color(0xFF8D8E98),
+                        thumbColor: const Color(0xFFEB1555),
+                        overlayColor: const Color(0x29EB1555),
+                        thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8.0),
+                        overlayShape: const RoundSliderOverlayShape(overlayRadius: 16.0)
                       ),
                       child: Slider(
                         value: height.toDouble(),
@@ -126,16 +128,16 @@ class _InputPageState extends State<InputPage> {
                       cardChild: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text(
+                          const Text(
                             'WEIGHT',
                             style: kLabelTextStyle,
                           ),
-                          SizedBox(height: 5.0),
+                          const SizedBox(height: 5.0),
                           Text(
                             weight.toString(),
                             style: kNumberTextStyle,
                           ),
-                          SizedBox(height: 5.0),
+                          const SizedBox(height: 5.0),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -147,7 +149,7 @@ class _InputPageState extends State<InputPage> {
                                   });
                                 },
                               ),
-                              SizedBox(width: 10.0),
+                              const SizedBox(width: 10.0),
                               RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: (){
@@ -168,10 +170,10 @@ class _InputPageState extends State<InputPage> {
                       cardChild: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text('AGE',style: kLabelTextStyle,),
-                          SizedBox(height: 5.0),
+                          const Text('AGE',style: kLabelTextStyle,),
+                          const SizedBox(height: 5.0),
                           Text(age.toString(),style: kNumberTextStyle,),
-                          SizedBox(height: 5.0),
+                          const SizedBox(height: 5.0),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -183,7 +185,7 @@ class _InputPageState extends State<InputPage> {
                                   });
                                 },
                               ),
-                              SizedBox(width: 10.0),
+                              const SizedBox(width: 10.0),
                               RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: (){
