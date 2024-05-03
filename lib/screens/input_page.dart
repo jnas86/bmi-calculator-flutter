@@ -1,4 +1,5 @@
 
+import 'package:bmi_calculator/calculator_brain.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/bottom_button.dart';
@@ -6,6 +7,7 @@ import '../components/reusable_card.dart';
 import '../components/round_icon_button.dart';
 import '../constants.dart';
 import '../components/icon_content.dart';
+
 
 
 enum Gender{
@@ -25,6 +27,7 @@ class _InputPageState extends State<InputPage> {
   int height = 180;
   int weight = 60;
   int age = 18;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -206,7 +209,14 @@ class _InputPageState extends State<InputPage> {
             BottomButton(
               buttonTitle: 'CALCULATE',
               onTap: (){
-                Navigator.pushNamed(context, '/results');
+                List <String> dataList = [];
+                CalculatorBrain calc = CalculatorBrain(weight: weight, height: height);
+
+                dataList.add(calc.calculateBMI().toString());
+                dataList.add(calc.getResult());
+                dataList.add(calc.getInterpretation());
+                print(dataList);
+                Navigator.pushNamed(context, '/results',arguments: dataList);
               },
             ),
           ],
