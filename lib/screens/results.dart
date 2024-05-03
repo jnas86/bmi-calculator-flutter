@@ -6,8 +6,19 @@ import 'package:flutter/material.dart';
 class ResultsPage extends StatelessWidget{
   const ResultsPage({super.key});
 
+  //
+  // final String bmiResult;
+  // final String resultText;
+  // final String interpretation;
+
   @override
   Widget build(BuildContext context){
+
+    final arguments = ModalRoute.of(context)?.settings.arguments as List<String>;
+    final String bmiResult = arguments[0];
+    final String resultText = arguments[1];
+    final String interpretation = arguments[2];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -18,10 +29,16 @@ class ResultsPage extends StatelessWidget{
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          const Expanded(child:
-            Text(
-              'Your Result',
-              style: kTitleTextStyle,
+          Expanded(
+            child: Center(
+              child: Container(
+                padding: EdgeInsets.all(15.0),
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  'Your Result',
+                  style: kTitleTextStyle,
+                ),
+              ),
             ),
           ),
           Expanded(
@@ -32,29 +49,29 @@ class ResultsPage extends StatelessWidget{
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  const Text(
-                    'Normal',
+                  Text(
+                    resultText.toUpperCase(),
                     style: kResultTextyle,
                   ),
-                  const Text(
-                    '18.3',
+                  Text(
+                    bmiResult,
                     style: kBMITextStyle,
                   ),
-                  const Text(
+                  Text(
                     textAlign: TextAlign.center,
-                    'Your BMI result is too low, you should eat more...',
+                    interpretation,
                     style: kBodyTextStyle,
                   ),
-                  BottomButton(
-                    onTap: (){
-                      Navigator.pushNamed(context, '/');
-                    },
-                    buttonTitle: 'RECALCULATE'
-                  )
                 ],
               ),
             ),
           ),
+          BottomButton(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              buttonTitle: 'RECALCULATE'
+          )
         ],
       )
     );
