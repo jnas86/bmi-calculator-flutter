@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 class IconContent extends StatelessWidget {
 
-  IconContent({super.key, required this.icon,required this.label});
+  const IconContent({super.key, required this.icon,required this.label});
 
   final IconData icon;
   final String label;
@@ -18,12 +18,12 @@ class IconContent extends StatelessWidget {
           //FontAwesomeIcons.mars,
           size: 80.0,
         ),
-        SizedBox(
+        const SizedBox(
           height: 15.0,
         ),
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18.0,
             color: Color(0xFF8D8E98),
           ),
