@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/results.dart';
 import 'package:flutter/material.dart';
 import 'input_page.dart';
 
@@ -15,7 +16,12 @@ class BMICalculator extends StatelessWidget {
             backgroundColor: Color(0xFF0D101F),
           ),
       ),
-      home: InputPage(),
+      //home: InputPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => InputPage(),
+        '/results': (context) => ResultsPage(),
+      },
     );
   }
 }
